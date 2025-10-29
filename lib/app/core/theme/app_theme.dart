@@ -19,5 +19,16 @@ class AppTheme {
         fontSize: 20,
       ),
     ),
+
+    textTheme: TextTheme(
+      displayMedium: TextStyle(
+        fontSize: 16,
+        color: Colors.blue,
+        fontWeight: FontWeight.w600,
+      ),
+    )
   );
+
+
 }
+
