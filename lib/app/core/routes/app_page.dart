@@ -1,5 +1,6 @@
 import 'package:exam_app/app/core/routes/app_route.dart';
 import 'package:exam_app/app/feature/forget/presentation/views/screens/forget_password_screen.dart';
+import 'package:exam_app/app/feature/forget/presentation/views/screens/otp_screen_screen.dart';
 import 'package:exam_app/app/feature/home/presentation/views/screens/home_screen.dart';
 import 'package:exam_app/app/feature/login/presentation/views/screens/login_screen.dart';
 import 'package:exam_app/app/feature/register/presentation/views/screens/register_screen.dart';
@@ -11,13 +12,14 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.otp:
+        return MaterialPageRoute(builder: (_) => const OtpScreenScreen());
 
       default:
         return unDefinedRoute();
