@@ -1,0 +1,7 @@
+{
+  "emailVerification": "Email verification",
+  "enterOtp": "Please enter your code that send to your email address",
+  "password": "Password",
+  "receiveCodeQuestion":"Didn't receive code?",
+  "resend": "resend"
+}
