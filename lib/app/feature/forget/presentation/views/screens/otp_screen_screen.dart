@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:exam_app/generated/locale_keys.g.dart';
 import 'package:exam_app/app/core/extension/build_context_extensions.dart';
 import 'package:exam_app/app/core/resources/app_colors.dart';
 import 'package:exam_app/app/core/theme/app_theme.dart';
@@ -20,7 +22,7 @@ class _OtpScreenScreenState extends State<OtpScreenScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: "Password"),
+      appBar: CustomAppBar(title:LocaleKeys.password.tr()),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -28,8 +30,8 @@ class _OtpScreenScreenState extends State<OtpScreenScreen> {
           children: [
             SizedBox(height: 60,),
 
-            Text("Email verification",style:context.textTheme.headlineSmall),
-            Text("Please enter your code that send to your email address ",style: context.textTheme.headlineSmall,),
+            Text(LocaleKeys.emailVerification.tr(),style:context.textTheme.headlineSmall),
+            Text(LocaleKeys.enterOtp.tr(),style: context.textTheme.headlineSmall,),
             SizedBox(height: 20,),
             otpTab(true),
             SizedBox(height: 20),
@@ -37,7 +39,7 @@ class _OtpScreenScreenState extends State<OtpScreenScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Didn't receive code? ",
+                  LocaleKeys.receiveCodeQuestion.tr(),
                   style:context.textTheme.labelSmall,
                 ),
                 GestureDetector(
@@ -45,7 +47,7 @@ class _OtpScreenScreenState extends State<OtpScreenScreen> {
                     // resend logic
                   },
                   child: Text(
-                    "Resend",
+                    LocaleKeys.resend.tr(),
                     style: context.textTheme.displayMedium,
                   ),
                 ),
