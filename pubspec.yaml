@@ -37,6 +37,12 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_otp_text_field: ^1.5.1+1
   easy_localization: ^3.0.8
+  retrofit: ^4.6.0
+  logger: ^2.6.0  # for logging purpose
+  json_annotation: ^4.9.0
+  injectable:
+  get_it:
+
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +54,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  retrofit_generator: ^10.0.1
+  build_runner: ^2.6.0
+  json_serializable: ^6.10.0
+  injectable_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
