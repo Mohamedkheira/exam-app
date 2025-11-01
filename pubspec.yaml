@@ -42,6 +42,7 @@ dependencies:
   json_annotation: ^4.9.0
   injectable:
   get_it:
+  flutter_bloc: ^9.1.1
 
 
 dev_dependencies:
