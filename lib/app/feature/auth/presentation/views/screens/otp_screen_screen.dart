@@ -1,23 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:exam_app/generated/locale_keys.g.dart';
 import 'package:exam_app/app/core/extension/build_context_extensions.dart';
-import 'package:exam_app/app/core/resources/app_colors.dart';
-import 'package:exam_app/app/core/theme/app_theme.dart';
 import 'package:exam_app/app/core/utils/custom_app_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
 
 class OtpScreenScreen extends StatefulWidget {
   const OtpScreenScreen({super.key});
 
   @override
   State<OtpScreenScreen> createState() => _OtpScreenScreenState();
-}
 
+}
 class _OtpScreenScreenState extends State<OtpScreenScreen> {
   bool hasError=false;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +72,7 @@ class _OtpScreenScreenState extends State<OtpScreenScreen> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
           child: OtpTextField(
-            numberOfFields: 4,
+            numberOfFields: 3,
             showFieldAsBox: true,
             fieldWidth: (1.sw - 80.w) / 4,
             borderRadius: BorderRadius.circular(14),

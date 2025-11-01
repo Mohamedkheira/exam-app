@@ -7,10 +7,10 @@ import '../../../../core/values/app_endpoint_strings.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: AppEndpointString.baseUrl)
+@RestApi(baseUrl:AppEndpointString.baseUrl)
 abstract class AuthApiClient {
   factory AuthApiClient(Dio dio, {String? baseUrl}) = _AuthApiClient;
 
-  @GET(AppEndpointString.sendEmail)
-  Future<ForgetPasswordEmailResponseModel> sendEmail(String email);
+  @POST(AppEndpointString.sendEmail)
+  Future<ForgetPasswordEmailResponseModel> sendEmail(@Field("email") String email);
 }

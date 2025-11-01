@@ -5,7 +5,11 @@ import 'package:exam_app/app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'app/config/di/di.dart';
+
 void main() async {
+  configureDependencies();
+
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 

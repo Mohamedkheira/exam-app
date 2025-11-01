@@ -12,7 +12,7 @@ part of 'auth_client.dart';
 
 class _AuthApiClient implements AuthApiClient {
   _AuthApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= ' https://exam.elevateegy.com/api/v1/';
+    baseUrl ??= 'https://exam.elevateegy.com/api/v1/';
   }
 
   final Dio _dio;
@@ -26,12 +26,12 @@ class _AuthApiClient implements AuthApiClient {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = {'email': email};
     final _options = _setStreamType<ForgetPasswordEmailResponseModel>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'auth/forgotPassword',
+            '/auth/forgotPassword',
             queryParameters: queryParameters,
             data: _data,
           )
