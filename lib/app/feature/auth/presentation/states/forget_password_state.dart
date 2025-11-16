@@ -1,6 +1,18 @@
 import 'package:exam_app/app/config/base_state/base_state.dart';
-import 'package:exam_app/app/feature/auth/data/models/forget_password_email_response_model.dart';
 
-class ForgetPasswordState extends BaseState<ForgetPasswordEmailResponseModel>{
+class ForgetPasswordState {
+  late Resource<void> forgetPassword;
 
+  ForgetPasswordState({ required this.forgetPassword});
+
+  ForgetPasswordState.initial(){
+    forgetPassword = Resource.initial();
+  }
+
+
+  ForgetPasswordState copyWith({Resource<void>? forgetPassword}) {
+    return ForgetPasswordState(
+        forgetPassword: forgetPassword ?? this.forgetPassword
+    );
+  }
 }

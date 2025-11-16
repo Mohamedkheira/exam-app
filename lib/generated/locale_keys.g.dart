@@ -8,5 +8,15 @@ abstract class  LocaleKeys {
   static const password = 'password';
   static const receiveCodeQuestion = 'receiveCodeQuestion';
   static const resend = 'resend';
+  static const forgetPassword = 'forgetPassword';
+  static const forgetPasswordQuote = 'forgetPasswordQuote';
+  static const continueTxt = 'continueTxt';
+  static const email = 'email';
+  static const enterYourEmail = 'enterYourEmail';
+  static const resetPassword = 'resetPassword';
+  static const resetPasswordQuote = 'resetPasswordQuote';
+  static const newPassword = 'newPassword';
+  static const enterYourPassword = 'enterYourPassword';
+  static const confirmPassword = 'confirmPassword';
 
 }

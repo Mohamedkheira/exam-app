@@ -1,0 +1,45 @@
+import 'package:exam_app/app/config/base_response/api_result.dart';
+import 'package:exam_app/app/feature/auth/data/models/change_password_request_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/forget_password_email_response_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../data/datasources/auth_datasource_contract.dart';
+import '../api_manger/auth_client.dart';
+
+@Injectable(as:AuthDataSourceContract)
+class AuthDataSourceImpl implements AuthDataSourceContract{
+  AuthDataSourceImpl(this.authApiClient);
+  AuthApiClient authApiClient;
+  @override
+  Future<ApiResult<ForgetPasswordEmailResponseModel>> sendEmail(String email) async {
+    try {
+      ForgetPasswordEmailResponseModel response = await authApiClient.sendEmail(email);
+      return SuccessApiResult<ForgetPasswordEmailResponseModel>(data:response);
+    } catch (e) {
+      return ErrorApiResult<ForgetPasswordEmailResponseModel>(error: e as Exception);
+    }
+  }
+
+  @override
+  Future<ApiResult<ForgetPasswordResponseModel>> verifyResetCode(String resetCode) async {
+    try{
+      ForgetPasswordResponseModel response=await authApiClient.verifyResetCode(resetCode);
+      return SuccessApiResult<ForgetPasswordResponseModel>(data: response);
+    }catch(e){
+      return ErrorApiResult<ForgetPasswordResponseModel>(error: e as Exception);
+    }
+
+  }
+
+  @override
+  Future<ApiResult<ForgetPasswordResponseModel>> changePassword(ChangePasswordRequestModel data) async{
+    try{
+      ForgetPasswordResponseModel response=await authApiClient.changePassword(data);
+      return SuccessApiResult<ForgetPasswordResponseModel>(data: response);
+    }catch(e){
+      return ErrorApiResult<ForgetPasswordResponseModel>(error: e as Exception);
+    }
+  }
+
+}

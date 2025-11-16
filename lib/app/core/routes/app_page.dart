@@ -5,6 +5,7 @@ import 'package:exam_app/app/feature/register/presentation/views/screens/registe
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../feature/auth/presentation/views/screens/change_password_screen.dart';
 import '../../feature/auth/presentation/views/screens/forget_password_screen.dart';
 import '../../feature/auth/presentation/views/screens/otp_screen_screen.dart';
 
@@ -19,7 +20,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-      case Routes.otp:
+      case Routes.changePassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+      case Routes.otpScreen:
         return MaterialPageRoute(builder: (_) => const OtpScreenScreen());
 
       default:

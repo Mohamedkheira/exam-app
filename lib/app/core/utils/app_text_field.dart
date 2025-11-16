@@ -40,7 +40,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
   OutlineInputBorder _border(Color c) => OutlineInputBorder(
     borderRadius: BorderRadius.circular(4),
-    borderSide: BorderSide(color: c, width: 1.5),
+    borderSide: BorderSide(color: c, width: 1),
   );
 
   @override

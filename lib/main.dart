@@ -8,19 +8,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app/config/di/di.dart';
 
 void main() async {
-  configureDependencies();
-
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+   configureDependencies();
 
-  runApp(EasyLocalization(
-    supportedLocales: [Locale('en'), Locale('ar')],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en'),
-    child: const MyApp(),
-  ));
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: const MyApp(),
+    ),
+  );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: ThemeData(),
           onGenerateRoute: RouteGenerator.getRoutes,
-          initialRoute: Routes.otp,
+          initialRoute: Routes.otpScreen,
         );
       },
     );

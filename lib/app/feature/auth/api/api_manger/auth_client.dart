@@ -4,6 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../core/values/app_endpoint_strings.dart';
+import '../../data/models/change_password_request_model.dart';
+import '../../data/models/reset_code_response_model.dart';
 
 part 'auth_client.g.dart';
 
@@ -13,4 +15,10 @@ abstract class AuthApiClient {
 
   @POST(AppEndpointString.sendEmail)
   Future<ForgetPasswordEmailResponseModel> sendEmail(@Field("email") String email);
+
+  @POST(AppEndpointString.resetCode)
+  Future<ForgetPasswordResponseModel> verifyResetCode(@Field("resetCode") String resetCode );
+
+  @PATCH(AppEndpointString.changePassword)
+  Future<ForgetPasswordResponseModel> changePassword(@Body() ChangePasswordRequestModel resetCode );
 }

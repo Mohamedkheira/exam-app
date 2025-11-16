@@ -4,8 +4,8 @@ part 'forget_password_email_response_model.g.dart';
 
 @JsonSerializable()
 class ForgetPasswordEmailResponseModel {
-  final String message;
-  final String info;
+  final String? message;
+  final String? info;
 
   ForgetPasswordEmailResponseModel(
       {
