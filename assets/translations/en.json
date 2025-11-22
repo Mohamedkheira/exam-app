@@ -1,0 +1,26 @@
+{
+  "email": "Email",
+  "password" : "Password",
+  "enterEmail": "Enter Your Email",
+  "enterPassword": "Enter Your Password",
+  "rememberMe": "Remember Me",
+  "login": "Login",
+  "signup": "Sign up",
+  "dontHaveAnAccount": "Don't Have An Account",
+  "DorgetPassword" : "Forget Password",
+  "Register":"Register",
+  "Home":"Home",
+  "userName": "User Name",
+  "enterUserName": "Enter User Name",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "enterFirstName": "Enter Your First Name",
+  "enterLastName": "Enter Your Last Name",
+  "alreadyHaveAnAccount":"Already have an account?",
+  "passwordConfirmation":"Password Confirmation",
+  "enterPasswordConfirm":"Confirmation Password",
+  "Phone Number": "phoneNumber",
+  "Enter Phone Number": "enterYourPhoneNumber"
+
+
+}
