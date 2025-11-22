@@ -1,10 +1,9 @@
 import 'package:exam_app/app/core/routes/app_route.dart';
-import 'package:exam_app/app/feature/forget/presentation/views/screens/forget_password_screen.dart';
+import 'package:exam_app/app/feature/auth/presentation/views/screens/forget_password_screen.dart';
 import 'package:exam_app/app/feature/home/presentation/views/screens/home_screen.dart';
-import 'package:exam_app/app/feature/login/presentation/views/screens/login_screen.dart';
-import 'package:exam_app/app/feature/register/presentation/views/screens/register_screen.dart';
+import 'package:exam_app/app/feature/auth/presentation/views/screens/login_screen.dart';
+import 'package:exam_app/app/feature/auth/presentation/views/screens/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoutes(RouteSettings settings) {
