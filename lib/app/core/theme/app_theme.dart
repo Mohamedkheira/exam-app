@@ -8,6 +8,7 @@ class AppTheme {
       seedColor: AppColors.primaryColor,
       primary: AppColors.primaryColor,
       secondary: AppColors.secondaryColor,
+        tertiary:AppColors.blueColor
     ),
 
     appBarTheme: AppBarTheme(
@@ -19,5 +20,19 @@ class AppTheme {
         fontSize: 20,
       ),
     ),
+
+    textTheme: TextTheme(
+      headlineMedium: TextStyle(fontSize:18,color: AppColors.blackColor,fontWeight: FontWeight.bold ),
+      headlineSmall:  TextStyle(fontSize:14,color: AppColors.greyColor),
+      displayMedium: TextStyle(
+        fontSize: 16,
+        color: Colors.blue,
+        fontWeight: FontWeight.w600,
+      ),
+        labelSmall:TextStyle(fontSize: 16, color: Colors.black54),
+    )
   );
+
+
 }
+
