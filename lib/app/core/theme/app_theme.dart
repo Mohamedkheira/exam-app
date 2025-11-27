@@ -30,6 +30,8 @@ class AppTheme {
         fontWeight: FontWeight.w600,
       ),
         labelSmall:TextStyle(fontSize: 16, color: Colors.black54),
+      labelMedium:TextStyle(fontSize: 18, color: Colors.black),
+
     )
   );
 

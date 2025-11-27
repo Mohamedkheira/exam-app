@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app/config/di/di.dart';
+import 'app/feature/navigation/view/screens/nav_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: ThemeData(),
           onGenerateRoute: RouteGenerator.getRoutes,
-          initialRoute: Routes.otpScreen,
+          initialRoute: Routes.navScreen,
         );
       },
     );

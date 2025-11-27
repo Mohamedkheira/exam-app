@@ -5,6 +5,10 @@ abstract class Routes {
   static const String home = _Paths.home;
   static const String changePassword = _Paths.changePassword;
   static const String otpScreen = _Paths.otpScreen;
+  static const String exploreScreen = _Paths.exploreScreen;
+  static const String navScreen = _Paths.navScreen;
+
+
 
 
 
@@ -18,6 +22,10 @@ abstract class _Paths {
   static const String home = 'Home';
   static const String changePassword = '/Change_Password';
   static const String otpScreen = '/Otp_Screen';
+  static const String exploreScreen = '/Explore_Screen';
+  static const String navScreen = '/Nav_Screen';
+
+
 
 
 }
