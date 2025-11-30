@@ -10,7 +10,7 @@ import 'app/config/di/di.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-   configureDependencies();
+  configureDependencies();
 
   runApp(
     EasyLocalization(
@@ -21,6 +21,7 @@ void main() async {
     ),
   );
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: ThemeData(),
           onGenerateRoute: RouteGenerator.getRoutes,
-          initialRoute: Routes.otpScreen,
+          initialRoute: Routes.login,
         );
       },
     );

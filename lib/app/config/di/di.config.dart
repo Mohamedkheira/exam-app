@@ -12,6 +12,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../feature/auth/api/api_manger/auth_client.dart' as _i788;
 import '../../feature/auth/api/datasource/auth_datasource_impl.dart' as _i51;
@@ -19,6 +20,7 @@ import '../../feature/auth/data/datasources/auth_datasource_contract.dart'
     as _i303;
 import '../../feature/auth/data/repos/auth_repo_impl.dart' as _i703;
 import '../../feature/auth/domain/repos/auth_repo_contract.dart' as _i1028;
+import '../../feature/auth/domain/usecase/auth_login_usecase.dart' as _i672;
 import '../../feature/auth/domain/usecase/change_password_usecase.dart'
     as _i291;
 import '../../feature/auth/domain/usecase/send_forget_password_email_usecase.dart'
@@ -27,23 +29,32 @@ import '../../feature/auth/domain/usecase/verify_reset_code_usecase.dart'
     as _i822;
 import '../../feature/auth/presentation/viewmodel/change_password_viewmodel.dart'
     as _i311;
+import '../../feature/auth/presentation/viewmodel/cubit/login_cubit.dart'
+    as _i187;
 import '../../feature/auth/presentation/viewmodel/forget_password_view_model.dart'
     as _i16;
 import '../../feature/auth/presentation/viewmodel/otp_viewmodel.dart' as _i43;
+import '../shared_preferences_module/shared_preferences_module.dart' as _i354;
 import 'network_module.dart' as _i567;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final sharedPreferencesModule = _$SharedPreferencesModule();
     final networkModule = _$NetworkModule();
-    gh.lazySingleton<_i361.Dio>(() => networkModule.dio());
-    gh.lazySingleton<_i788.AuthApiClient>(
-      () => networkModule.authApiClient(gh<_i361.Dio>()),
+    await gh.factoryAsync<_i460.SharedPreferences>(
+      () => sharedPreferencesModule.prefs,
+      preResolve: true,
     );
+    gh.lazySingleton<_i361.Dio>(() => networkModule.dio());
+    gh.lazySingleton<_i354.CacheHelper>(
+      () => _i354.CacheHelper(gh<_i460.SharedPreferences>()),
+    );
+    gh.factory<_i788.AuthApiClient>(() => _i788.AuthApiClient(gh<_i361.Dio>()));
     gh.factory<_i303.AuthDataSourceContract>(
       () => _i51.AuthDataSourceImpl(gh<_i788.AuthApiClient>()),
     );
@@ -67,11 +78,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i43.OtpViewmodel>(
       () => _i43.OtpViewmodel(gh<_i822.VerifyResetCodeUsecase>()),
     );
+    gh.factory<_i672.DoLoginUsecase>(
+      () => _i672.DoLoginUsecase(gh<_i1028.AuthRepoContract>()),
+    );
     gh.factory<_i311.ChangePasswordViewmodel>(
       () => _i311.ChangePasswordViewmodel(gh<_i291.ChangePasswordUsecase>()),
+    );
+    gh.factory<_i187.LoginCubit>(
+      () =>
+          _i187.LoginCubit(gh<_i672.DoLoginUsecase>(), gh<_i354.CacheHelper>()),
     );
     return this;
   }
 }
+
+class _$SharedPreferencesModule extends _i354.SharedPreferencesModule {}
 
 class _$NetworkModule extends _i567.NetworkModule {}

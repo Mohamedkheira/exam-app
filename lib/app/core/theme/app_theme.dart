@@ -8,11 +8,12 @@ class AppTheme {
       seedColor: AppColors.primaryColor,
       primary: AppColors.primaryColor,
       secondary: AppColors.secondaryColor,
-        tertiary:AppColors.blueColor
+      tertiary: AppColors.blueColor,
     ),
 
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(color: AppColors.blackColor),
+      titleSpacing: 0,
       titleTextStyle: TextStyle(
         color: AppColors.blackColor,
         fontWeight: FontWeight.bold,
@@ -22,17 +23,18 @@ class AppTheme {
     ),
 
     textTheme: TextTheme(
-      headlineMedium: TextStyle(fontSize:18,color: AppColors.blackColor,fontWeight: FontWeight.bold ),
-      headlineSmall:  TextStyle(fontSize:14,color: AppColors.greyColor),
+      headlineMedium: TextStyle(
+        fontSize: 18,
+        color: AppColors.blackColor,
+        fontWeight: FontWeight.bold,
+      ),
+      headlineSmall: TextStyle(fontSize: 14, color: AppColors.greyColor),
       displayMedium: TextStyle(
         fontSize: 16,
         color: Colors.blue,
         fontWeight: FontWeight.w600,
       ),
-        labelSmall:TextStyle(fontSize: 16, color: Colors.black54),
-    )
+      labelSmall: TextStyle(fontSize: 16, color: Colors.black54),
+    ),
   );
-
-
 }
-
