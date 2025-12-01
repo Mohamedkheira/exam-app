@@ -41,18 +41,18 @@ class LoginScreen extends StatelessWidget {
             );
           }
           if (loginState.error != null) {
-            context.pop();
+            Navigator.pop;
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text(loginState.error!)));
           }
 
           if (loginState.data != null) {
-            context.pop();
+            Navigator.pop;
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text(LocaleKeys.loginSuccess)),
             );
-            context.go('/home');
+            Navigator.pushReplacementNamed(context, Routes.home);
           }
         },
         builder: (context, state) {
