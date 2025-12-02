@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:exam_app/app/core/constants/widgets/app_text_button.dart';
 import 'package:exam_app/app/core/constants/widgets/spacing.dart';
 import 'package:exam_app/app/core/resources/app_colors.dart';
+import 'package:exam_app/app/core/routes/app_route.dart';
 import 'package:exam_app/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,9 @@ class DontHaveAccountText extends StatelessWidget {
         horizontalSpace(2),
         AppTextButton(
           text: LocaleKeys.signup.tr(),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.register);
+          },
           textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
             color: AppColors.primaryColor,
             decoration: TextDecoration.underline,

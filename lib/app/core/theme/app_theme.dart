@@ -28,7 +28,10 @@ class AppTheme {
         color: AppColors.blackColor,
         fontWeight: FontWeight.bold,
       ),
-      headlineSmall: TextStyle(fontSize: 14, color: AppColors.greyColor),
+      headlineSmall: TextStyle(
+        fontSize: FontSize.s14,
+        color: AppColors.greyColor,
+      ),
       displayMedium: TextStyle(
         fontSize: 16,
         color: Colors.blue,

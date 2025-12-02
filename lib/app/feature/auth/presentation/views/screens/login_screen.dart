@@ -57,12 +57,15 @@ class LoginScreen extends StatelessWidget {
         },
         builder: (context, state) {
           final cubit = context.read<LoginCubit>();
-          ;
           final loginState = state.loginStates;
 
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_back_ios),
+              ),
               title: Text(
                 LocaleKeys.login,
                 style: Theme.of(context).textTheme.headlineMedium,
@@ -107,7 +110,9 @@ class LoginScreen extends StatelessWidget {
                         ),
                         AppTextButton(
                           text: LocaleKeys.forgetPassword,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.forgetPassword);
+                          },
                           textColor: AppColors.blackColor,
                           underline: true,
                         ),
@@ -130,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                     verticalSpace(16),
-                    const DontHaveAccountText(),
+                    DontHaveAccountText(),
                   ],
                 ),
               ),
