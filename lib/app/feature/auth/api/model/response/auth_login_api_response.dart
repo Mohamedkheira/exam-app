@@ -19,4 +19,7 @@ class AuthLoginApiResponse {
       _$AuthLoginApiResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$AuthLoginApiResponseToJson(this);
+  LoginEntity toEntity() {
+    return LoginEntity(message: message, accessToken: token);
+  }
 }

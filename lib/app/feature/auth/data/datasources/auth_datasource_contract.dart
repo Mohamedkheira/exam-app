@@ -16,7 +16,7 @@ abstract class AuthDataSourceContract {
   Future<ApiResult<ForgetPasswordResponseModel>> changePassword(
     ChangePasswordRequestModel data,
   );
-  Future<BaseResponse<AuthLoginRequestDto>> login(
+  Future<BaseResponse<AuthLoginApiResponse>> login(
     AuthLoginRequestDto loginRequestModel,
   );
 }

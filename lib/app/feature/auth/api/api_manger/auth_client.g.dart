@@ -103,7 +103,7 @@ class _AuthApiClient implements AuthApiClient {
   }
 
   @override
-  Future<AuthLoginRequestDto> login(
+  Future<AuthLoginApiResponse> login(
     AuthLoginRequestDto loginRequestModel,
   ) async {
     final _extra = <String, dynamic>{};
@@ -111,7 +111,7 @@ class _AuthApiClient implements AuthApiClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(loginRequestModel.toJson());
-    final _options = _setStreamType<AuthLoginRequestDto>(
+    final _options = _setStreamType<AuthLoginApiResponse>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -122,9 +122,9 @@ class _AuthApiClient implements AuthApiClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AuthLoginRequestDto _value;
+    late AuthLoginApiResponse _value;
     try {
-      _value = AuthLoginRequestDto.fromJson(_result.data!);
+      _value = AuthLoginApiResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

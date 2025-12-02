@@ -65,7 +65,7 @@ class LoginCubit extends Cubit<LoginState> {
         if (rememberMe) {
           final result = await _cacheHelper.saveData(
             key: CacheConstants.token,
-            value: data.accessToken,
+            value: data.accessToken??"",
           );
         } else {
           await _cacheHelper.remove(CacheConstants.token);

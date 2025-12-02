@@ -10,6 +10,7 @@ import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.
 import 'package:injectable/injectable.dart';
 
 import '../../data/datasources/auth_datasource_contract.dart';
+import '../../data/models/response/login_response_model.dart';
 import '../api_manger/auth_client.dart';
 import 'package:dio/dio.dart';
 
@@ -61,7 +62,7 @@ class AuthDataSourceImpl implements AuthDataSourceContract {
   }
 
   @override
-  Future<BaseResponse<AuthLoginRequestDto>> login(
+  Future<BaseResponse<AuthLoginApiResponse>> login(
     AuthLoginRequestDto loginRequestModel,
   ) async {
     try {

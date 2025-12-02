@@ -34,7 +34,7 @@ abstract class AuthApiClient {
     @Body() ChangePasswordRequestModel resetCode,
   );
   @POST(AppEndpointString.login)
-  Future<AuthLoginRequestDto> login(
+  Future<AuthLoginApiResponse> login(
     @Body() AuthLoginRequestDto loginRequestModel,
   );
 }
