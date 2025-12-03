@@ -7,8 +7,8 @@ import 'package:exam_app/app/core/constants/cache_constants.dart';
 import 'package:exam_app/app/feature/auth/data/models/request/auth_login_request_dto.dart';
 import 'package:exam_app/app/feature/auth/domain/model/login_entity.dart';
 import 'package:exam_app/app/feature/auth/domain/usecase/auth_login_usecase.dart';
-import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit/login_events.dart';
-import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit/login_state.dart';
+import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit_login/login_events.dart';
+import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit_login/login_state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
@@ -44,7 +44,6 @@ class LoginCubit extends Cubit<LoginState> {
         loginStates: Resource<LoginEntity>(status: Status.loading),
       ),
     );
-
     final response = await loginUsecase.dologinUseacase(
       AuthLoginRequestDto(
         email: emailController.text.trim(),
@@ -65,7 +64,7 @@ class LoginCubit extends Cubit<LoginState> {
         if (rememberMe) {
           final result = await _cacheHelper.saveData(
             key: CacheConstants.token,
-            value: data.accessToken??"",
+            value: data.accessToken ?? "",
           );
         } else {
           await _cacheHelper.remove(CacheConstants.token);

@@ -59,5 +59,7 @@ abstract class  LocaleKeys {
   static const passwordSpecialChar = 'passwordSpecialChar';
   static const passwordNotMatch = 'passwordNotMatch';
   static const confirmPasswordRequired = 'confirmPasswordRequired';
+  static const successMessage = 'successMessage';
+  static const loading = 'loading';
 
 }

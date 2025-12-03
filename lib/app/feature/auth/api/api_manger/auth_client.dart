@@ -3,6 +3,8 @@ import 'package:exam_app/app/feature/auth/api/model/request/auth_login_api_reque
 import 'package:exam_app/app/feature/auth/api/model/response/auth_login_api_response.dart';
 import 'package:exam_app/app/feature/auth/data/models/forget_password_email_response_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/request/auth_login_request_dto.dart';
+import 'package:exam_app/app/feature/auth/data/models/request/sign_up_request_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/response/sign_up_response_model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
@@ -36,5 +38,10 @@ abstract class AuthApiClient {
   @POST(AppEndpointString.login)
   Future<AuthLoginApiResponse> login(
     @Body() AuthLoginRequestDto loginRequestModel,
+  );
+
+  @POST(AppEndpointString.signUp)
+  Future<SignUpResponseModel> signup(
+    @Body() SignUpRequestDTO signUpRequestModel,
   );
 }

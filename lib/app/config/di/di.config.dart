@@ -21,16 +21,20 @@ import '../../feature/auth/data/datasources/auth_datasource_contract.dart'
 import '../../feature/auth/data/repos/auth_repo_impl.dart' as _i703;
 import '../../feature/auth/domain/repos/auth_repo_contract.dart' as _i1028;
 import '../../feature/auth/domain/usecase/auth_login_usecase.dart' as _i672;
+import '../../feature/auth/domain/usecase/call_sign_up_usecase.dart' as _i372;
 import '../../feature/auth/domain/usecase/change_password_usecase.dart'
     as _i291;
+import '../../feature/auth/domain/usecase/do_sign_up_usecase.dart' as _i241;
 import '../../feature/auth/domain/usecase/send_forget_password_email_usecase.dart'
     as _i15;
 import '../../feature/auth/domain/usecase/verify_reset_code_usecase.dart'
     as _i822;
 import '../../feature/auth/presentation/viewmodel/change_password_viewmodel.dart'
     as _i311;
-import '../../feature/auth/presentation/viewmodel/cubit/login_cubit.dart'
-    as _i187;
+import '../../feature/auth/presentation/viewmodel/cubit_login/login_cubit.dart'
+    as _i269;
+import '../../feature/auth/presentation/viewmodel/cubit_sign_up/sign_up_cubit.dart'
+    as _i791;
 import '../../feature/auth/presentation/viewmodel/forget_password_view_model.dart'
     as _i16;
 import '../../feature/auth/presentation/viewmodel/otp_viewmodel.dart' as _i43;
@@ -70,6 +74,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i822.VerifyResetCodeUsecase>(
       () => _i822.VerifyResetCodeUsecase(gh<_i1028.AuthRepoContract>()),
     );
+    gh.factory<_i372.CallSignUpUseCase>(
+      () => _i372.CallSignUpUseCase(gh<_i1028.AuthRepoContract>()),
+    );
     gh.factory<_i16.ForgetPasswordViewmodel>(
       () => _i16.ForgetPasswordViewmodel(
         gh<_i15.SendForgetPasswordEmailUseCase>(),
@@ -78,15 +85,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i43.OtpViewmodel>(
       () => _i43.OtpViewmodel(gh<_i822.VerifyResetCodeUsecase>()),
     );
+    gh.factory<_i241.DoSignUpUsecase>(
+      () => _i241.DoSignUpUsecase(gh<_i1028.AuthRepoContract>()),
+    );
     gh.factory<_i672.DoLoginUsecase>(
       () => _i672.DoLoginUsecase(gh<_i1028.AuthRepoContract>()),
     );
     gh.factory<_i311.ChangePasswordViewmodel>(
       () => _i311.ChangePasswordViewmodel(gh<_i291.ChangePasswordUsecase>()),
     );
-    gh.factory<_i187.LoginCubit>(
+    gh.factory<_i269.LoginCubit>(
       () =>
-          _i187.LoginCubit(gh<_i672.DoLoginUsecase>(), gh<_i354.CacheHelper>()),
+          _i269.LoginCubit(gh<_i672.DoLoginUsecase>(), gh<_i354.CacheHelper>()),
+    );
+    gh.factory<_i791.SignUpCubit>(
+      () => _i791.SignUpCubit(gh<_i241.DoSignUpUsecase>()),
     );
     return this;
   }

@@ -5,8 +5,10 @@ import 'package:exam_app/app/feature/auth/data/datasources/auth_datasource_contr
 import 'package:exam_app/app/feature/auth/data/models/change_password_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/forget_password_email_response_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/request/auth_login_request_dto.dart';
+import 'package:exam_app/app/feature/auth/data/models/request/sign_up_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/response/login_response_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/response/sign_up_response_model.dart';
 import 'package:exam_app/app/feature/auth/domain/model/login_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -82,6 +84,18 @@ class AuthRepoImpl implements AuthRepoContract {
 
     return loginResponse.map(
       success: (success) => BaseResponse.success(success.data.toEntity()),
+      failure: (failure) => BaseResponse.failure(failure.errorhandeler),
+    );
+  }
+
+  @override
+  Future<BaseResponse<SignUpResponseModel>> signup(
+    SignUpRequestDTO requestModel,
+  ) async {
+    final response = await authDataSourceContract.signup(requestModel);
+
+    return response.map(
+      success: (Success) => BaseResponse.success(Success.data),
       failure: (failure) => BaseResponse.failure(failure.errorhandeler),
     );
   }

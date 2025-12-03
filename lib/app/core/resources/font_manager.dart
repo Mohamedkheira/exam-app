@@ -7,7 +7,7 @@ abstract class FontsFamily {
   static const String inter = 'Inter';
 }
 
-abstract class FontWeghits {
+abstract class FontWeights {
   static const black = FontWeight.w900;
   static const extraBold = FontWeight.w800;
   static const bold = FontWeight.w700;

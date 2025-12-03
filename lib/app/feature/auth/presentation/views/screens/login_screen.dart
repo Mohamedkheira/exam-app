@@ -10,9 +10,9 @@ import 'package:exam_app/app/core/resources/font_manager.dart';
 import 'package:exam_app/app/core/routes/app_route.dart';
 import 'package:exam_app/app/core/utils/app_text_field.dart';
 import 'package:exam_app/app/core/validators/app_validators.dart';
-import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit/login_cubit.dart';
-import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit/login_events.dart';
-import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit/login_state.dart';
+import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit_login/login_cubit.dart';
+import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit_login/login_events.dart';
+import 'package:exam_app/app/feature/auth/presentation/viewmodel/cubit_login/login_state.dart';
 import 'package:exam_app/app/feature/auth/presentation/views/widgets/dont_have_account_text.dart';
 import 'package:exam_app/app/feature/auth/presentation/views/widgets/remember_me_check_box.dart';
 import 'package:exam_app/generated/locale_keys.g.dart';
@@ -37,11 +37,10 @@ class LoginScreen extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) =>
-                  const Center(child: LoadingIndicator(size: 220)),
+                  Center(child: LoadingIndicator(size: 220.r)),
             );
           }
           if (loginState.error != null) {
-            Navigator.pop;
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text(loginState.error!)));
@@ -123,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                       text: LocaleKeys.login,
                       isLoading: loginState.status == Status.loading,
                       onPressed: () {
-                        if (cubit.formkey.currentState!.validate()) {
+                        if (!cubit.formkey.currentState!.validate()) {
                           cubit.onEvent(
                             Login(
                               email: cubit.emailController.text.trim(),
@@ -131,6 +130,7 @@ class LoginScreen extends StatelessWidget {
                               rememberMe: state.rememberMe,
                             ),
                           );
+                          return;
                         }
                       },
                     ),

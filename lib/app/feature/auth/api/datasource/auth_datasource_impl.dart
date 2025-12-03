@@ -6,7 +6,9 @@ import 'package:exam_app/app/feature/auth/api/model/response/auth_login_api_resp
 import 'package:exam_app/app/feature/auth/data/models/change_password_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/forget_password_email_response_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/request/auth_login_request_dto.dart';
+import 'package:exam_app/app/feature/auth/data/models/request/sign_up_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/response/sign_up_response_model.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/datasources/auth_datasource_contract.dart';
@@ -70,6 +72,20 @@ class AuthDataSourceImpl implements AuthDataSourceContract {
       return BaseResponse.success(response);
     } catch (error) {
       return BaseResponse.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  @override
+  Future<BaseResponse<SignUpResponseModel>> signup(
+    SignUpRequestDTO request,
+  ) async {
+    try {
+      final response = await authApiClient.signup(request);
+
+      return BaseResponse.success(response);
+    } catch (e) {
+      //final errorHandler = ErrorHandler.handle(e);
+      return BaseResponse.failure(ErrorHandler.handle(e));
     }
   }
 

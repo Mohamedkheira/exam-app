@@ -54,5 +54,7 @@
   "passwordNumber": "كلمة المرور يجب أن تحتوي على رقم واحد على الأقل",
   "passwordSpecialChar": "كلمة المرور يجب أن تحتوي على حرف خاص واحد على الأقل",
     "passwordNotMatch": "كلمة المرور غير متطابقة",
-      "confirmPasswordRequired": "تأكيد كلمة المرور مطلوب"
+      "confirmPasswordRequired": "تأكيد كلمة المرور مطلوب",
+      "successMessage": "تم التسجيل بنجاح",
+"loading": "جاري التحميل..."
 }

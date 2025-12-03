@@ -4,5 +4,5 @@ class AppEndpointString {
   static const String resetCode = '/auth/verifyResetCode';
   static const String changePassword = '/auth/changePassword';
   static const String login = "auth/signin";
-  static const String signup = "auth/signup";
+  static const String signUp = 'auth/signup';
 }

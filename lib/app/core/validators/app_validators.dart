@@ -41,6 +41,37 @@ class AppValidators {
     } else if (value != originalPassword) {
       return LocaleKeys.passwordNotMatch;
     }
+
+    return null;
+  }
+
+  /// Validate name field
+  static String? validateUserName(String? value) {
+    if (value == null || value.isEmpty) {
+      return LocaleKeys.userNameRequired;
+    }
+    return null;
+  }
+
+  /// Validate phone field
+  static String? validateNumberPhone(String? value) {
+    if (value == null || value.isEmpty) {
+      return LocaleKeys.phoneNumberRequired;
+    }
+    return null;
+  }
+
+  static String? validateFirstName(String? value) {
+    if (value == null || value.isEmpty) {
+      return LocaleKeys.firstNameRequired;
+    }
+    return null;
+  }
+
+  static String? validateLastName(String? value) {
+    if (value == null || value.isEmpty) {
+      return LocaleKeys.lastNameRequired;
+    }
     return null;
   }
 }

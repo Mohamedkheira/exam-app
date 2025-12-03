@@ -55,5 +55,7 @@
   "passwordNumber" : "Password must contain at least one number",
   "passwordSpecialChar" : "Password must contain at least one special character",
   "passwordNotMatch" : "Password not match",
-  "confirmPasswordRequired": "Confirm password is required"
+  "confirmPasswordRequired": "Confirm password is required",
+  "successMessage": "Sign up is successful",
+  "loading": "Loading..."
 }

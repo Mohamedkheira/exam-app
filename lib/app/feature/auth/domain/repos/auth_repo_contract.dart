@@ -4,7 +4,9 @@ import 'package:exam_app/app/feature/auth/api/model/request/auth_login_api_reque
 import 'package:exam_app/app/feature/auth/api/model/response/auth_login_api_response.dart';
 import 'package:exam_app/app/feature/auth/data/models/change_password_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/request/auth_login_request_dto.dart';
+import 'package:exam_app/app/feature/auth/data/models/request/sign_up_request_model.dart';
 import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.dart';
+import 'package:exam_app/app/feature/auth/data/models/response/sign_up_response_model.dart';
 import 'package:exam_app/app/feature/auth/domain/model/login_entity.dart';
 
 import '../../data/models/forget_password_email_response_model.dart';
@@ -19,5 +21,9 @@ abstract class AuthRepoContract {
   );
   Future<BaseResponse<LoginEntity>> login(
     AuthLoginRequestDto loginRequestModel,
+  );
+
+  Future<BaseResponse<SignUpResponseModel>> signup(
+    SignUpRequestDTO signUpRequestModel,
   );
 }
