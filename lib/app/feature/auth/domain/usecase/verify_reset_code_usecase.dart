@@ -4,9 +4,13 @@ import 'package:exam_app/app/feature/auth/data/models/reset_code_response_model.
 import 'package:injectable/injectable.dart';
 
 import '../repos/auth_repo_contract.dart';
+
 @injectable
-class VerifyResetCodeUsecase{
+class VerifyResetCodeUsecase {
   VerifyResetCodeUsecase(this.repoContract);
   final AuthRepoContract repoContract;
-  Future<ApiResult<ForgetPasswordResponseModel>> call({required String resetCode})=>repoContract.verifyResetCode(resetCode);
+
+  Future<ApiResult<ForgetPasswordResponseModel>> call({
+    required String resetCode,
+  }) => repoContract.verifyResetCode(resetCode);
 }
